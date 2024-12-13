@@ -97,6 +97,8 @@
   changed_when: false
   failed_when: false
   register: amazon2cis_6_2_8_getent
+  when:
+      - amazon2cis_rule_6_2_8
   tags:
       - skip_ansible_lint
       - rule_6.2.8
@@ -106,5 +108,6 @@
       amazon2cis_stig_interactive_homedir_results: "{{ amazon2cis_6_2_8_getent.stdout_lines }}"
   when:
       - amazon2cis_6_2_8_getent.stdout_lines is defined
+      - amazon2cis_rule_6_2_8
   tags:
       - rule_6.2.8
